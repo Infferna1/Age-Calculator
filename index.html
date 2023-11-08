@@ -12,43 +12,45 @@
       href="./assets/images/favicon-32x32.png"
     />
 
-    <title>Frontend Mentor | Age calculator app</title>
+    <link rel="stylesheet" href="style.css" />
 
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <title>Frontend Mentor | Age calculator app</title>
   </head>
   <body>
     <main>
       <article>
-        <label for="day">Day</label>
-        <input type="text" id="day" name="day" placeholder="DD" />
-        <label for="month">Month</label>
-        <input type="text" id="month" name="month" placeholder="MM" />
-        <label for="year">Year</label>
-        <input type="text" id="year" name="year" placeholder="YYYY" />
+        <div class="input-group">
+          <label for="day">Day</label>
+          <input type="text" id="day" name="day" placeholder="DD" />
+        </div>
+        <div class="input-group">
+          <label for="month">Month</label>
+          <input type="text" id="month" name="month" placeholder="MM" />
+        </div>
+        <div class="input-group">
+          <label for="year">Year</label>
+          <input type="text" id="year" name="year" placeholder="YYYY" />
+        </div>
       </article>
-      <hr />
-      <button>
-        <img src="/assets/images/icon-arrow.svg" alt="" />
-      </button>
+
+      <article>
+        <hr />
+        <button>
+          <img src="/assets/images/icon-arrow.svg" alt="" height="20px" width="24px"/>
+        </button>
+      </article>
+
       <article>
         <section>
-          <p class="num">--</p>
+          <p class="num">- -</p>
           <p class="date">years</p>
         </section>
         <section>
-          <p class="num">--</p>
+          <p class="num">- -</p>
           <p class="date">months</p>
         </section>
         <section>
-          <p class="num">--</p>
+          <p class="num">- -</p>
           <p class="date">days</p>
         </section>
       </article>
@@ -57,7 +59,7 @@
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      >. Coded by <a href="#">Infferna</a>.
     </footer>
   </body>
 </html>

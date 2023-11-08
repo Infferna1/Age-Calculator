@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+
+:root {
+  /* PRIMARY */
+  --purple: hsl(259, 100%, 65%);
+  --light-red: hsl(0, 100%, 67%);
+
+  /* NEUTRAL */
+  --white: hsl(0, 0%, 100%);
+  --off-white: hsl(0, 0%, 94%);
+  --light-grey: hsl(0, 0%, 86%);
+  --smokey-grey: hsl(0, 1%, 44%);
+  --off-black: hsl(0, 0%, 8%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-grey);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  background-color: var(--white);
+  font-family: "Poppins", sans-serif;
+  width: 450px;
+  border-radius: 1rem 1rem 5rem 1rem;
+}
+
+article {
+  padding: 0 1.5rem;
+}
+
+article:first-of-type {
+  display: flex;
+  flex-direction: row;
+  padding-top: 25px;
+  padding-bottom: 5px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.input-group label {
+  align-self: flex-start;
+  margin-bottom: 8px;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--smokey-grey);
+}
+
+.input-group input {
+  border-color: var(--off-white);
+  border: 1px solid var(--off-white);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.5rem;
+  max-width: 90px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.input-group input::placeholder {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--smokey-grey);
+}
+
+article:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+article:nth-child(2) hr {
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--off-white);
+  border: none;
+}
+
+article:nth-child(2) button {
+  background-color: var(--purple);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+article:last-of-type {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+article:last-of-type section {
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+}
+
+article:last-of-type section p:first-child {
+  color: var(--purple);
+}
+
+article:last-of-type section p:last-child {
+  color: var(--off-black);
+}
+
+article:last-of-type section p {
+  font-weight: 800;
+  font-style: italic;
+  font-size: 48px;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  text-decoration: none;
+}
