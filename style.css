@@ -32,25 +32,25 @@ body {
 main {
   background-color: var(--white);
   font-family: "Poppins", sans-serif;
-  width: 450px;
+  width: 480px;
   border-radius: 1rem 1rem 5rem 1rem;
 }
 
 article {
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
 article:first-of-type {
   display: flex;
   flex-direction: row;
-  padding-top: 25px;
+  padding-top: 30px;
   padding-bottom: 5px;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-right: 1rem;
 }
 
@@ -64,11 +64,10 @@ article:first-of-type {
 }
 
 .input-group input {
-  border-color: var(--off-white);
   border: 1px solid var(--off-white);
   border-radius: 0.5rem;
   padding: 0.5rem 0.5rem;
-  max-width: 90px;
+  width: 90px;
   font-size: 18px;
   font-weight: 700;
 }
@@ -77,6 +76,18 @@ article:first-of-type {
   font-weight: 700;
   font-size: 18px;
   color: var(--smokey-grey);
+}
+
+.input-group input:hover {
+  border: 1px solid var(--purple);
+  cursor: pointer;
+}
+
+.error-msg {
+  font-size: 10px;
+  font-style: italic;
+  color: var(--light-red);
+  padding-top: 8px;
 }
 
 article:nth-child(2) {
@@ -96,17 +107,21 @@ article:nth-child(2) button {
   background-color: var(--purple);
   border: none;
   border-radius: 50%;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 
+article:nth-child(2) button:hover {
+  background-color: var(--off-black);
+}
+
 article:last-of-type {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 article:last-of-type section {
@@ -137,3 +152,4 @@ article:last-of-type section p {
   color: hsl(228, 45%, 44%);
   text-decoration: none;
 }
+
