@@ -63,13 +63,25 @@ article:first-of-type {
   color: var(--smokey-grey);
 }
 
+/* .label-err {
+  color: var(--light-red);
+} */
+
 .input-group input {
-  border: 1px solid var(--off-white);
+  /* border: 1px solid var(--off-white); */
   border-radius: 0.5rem;
   padding: 0.5rem 0.5rem;
   width: 90px;
   font-size: 18px;
   font-weight: 700;
+}
+
+.normal {
+  border: 1px solid var(--off-white);
+}
+
+.error {
+  border: 1px solid var(--light-red);
 }
 
 .input-group input::placeholder {
