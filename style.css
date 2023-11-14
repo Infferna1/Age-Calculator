@@ -20,7 +20,7 @@
 }
 
 body {
-  background-color: var(--light-grey);
+  background-color: var(--off-white);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,7 +77,7 @@ article:first-of-type {
 }
 
 .normal {
-  border: 1px solid var(--off-white);
+  border: 1px solid var(--light-grey);
 }
 
 .error {
@@ -115,7 +115,7 @@ article:nth-child(2) {
 article:nth-child(2) hr {
   flex-grow: 1;
   height: 1px;
-  background-color: var(--off-white);
+  background-color: var(--light-grey);
   border: none;
 }
 
@@ -211,7 +211,7 @@ article:last-of-type section p {
   }
 
   article:nth-child(2) hr {
-    background-color: var(--off-white);
+    background-color: var(--light-grey);
     height: 1px;
     width: 80%;
     position: absolute;
