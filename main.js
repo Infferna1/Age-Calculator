@@ -1,5 +1,6 @@
 var inputs = document.querySelectorAll("input");
 var button = document.querySelector("button");
+var nums = document.querySelectorAll(".num");
 
 var hasDateError = false;
 
@@ -9,6 +10,8 @@ const errorMsg = {
 };
 
 button.addEventListener("click", () => {
+  let hasInputError = false;
+
   inputs.forEach((input) => {
     const value = input.value.trim();
     const label = input.parentElement.querySelector("label");
@@ -17,6 +20,7 @@ button.addEventListener("click", () => {
       label.style.color = "var(--light-red)";
       input.classList.replace("normal", "error");
       showError(input, errorMsg.requestField);
+      hasInputError = true;
     } else {
       input.classList.replace("error", "normal");
       label.style.color = "var(--smokey-grey)";
@@ -31,12 +35,68 @@ button.addEventListener("click", () => {
     showError(inputs[error.inputIndex], error.message, hasDateError);
   });
 
+  if (!hasInputError && errors.length === 0) {
+    inputs.forEach((input) => {
+      clearError(input);
+    });
+    performCalculation();
+  }
+
   inputs.forEach((input) => {
     input.addEventListener("click", () => {
       clearError(input);
     });
   });
 });
+
+function performCalculation() {
+  const day = document.getElementById("day").value;
+  const month = document.getElementById("month").value - 1;
+  const year = document.getElementById("year").value;
+
+  const currentDate = new Date();
+  const inputDate = new Date(year, month, day);
+
+  const difference = currentDate.getTime() - inputDate.getTime();
+
+  const millisecondsInDay = 1000 * 60 * 60 * 24;
+  const days = Math.floor(difference / millisecondsInDay);
+  const years = currentDate.getFullYear() - inputDate.getFullYear();
+  const months = currentDate.getMonth() - inputDate.getMonth() + 12 * years;
+
+  console.log(`Пройшло ${days} днів`);
+  console.log(`Пройшло ${months} місяців`);
+  console.log(`Пройшло ${years} років`);
+
+  animateNumber(document.querySelectorAll('.num')[2], 0, days, 1000);
+  animateNumber(document.querySelectorAll('.num')[1], 0, months, 1500); 
+  animateNumber(document.querySelectorAll('.num')[0], 0, years, 2000);
+}
+
+function animateNumber(element, start, end, duration) {
+  let startTime = null;
+
+  function updateNumber(timestamp) {
+    if (!startTime) {
+      startTime = timestamp;
+    }
+
+    const progress = timestamp - startTime;
+    const percentage = Math.min(progress / duration, 1);
+    const currentNumber = Math.floor(percentage * (end - start) + start);
+
+    element.textContent = currentNumber.toLocaleString('en-US', {
+      minimumIntegerDigits: 2,
+      useGrouping: false
+    });
+
+    if (percentage < 1) {
+      requestAnimationFrame(updateNumber);
+    }
+  }
+
+  requestAnimationFrame(updateNumber);
+}
 
 function clearError(input) {
   input.classList.replace("error", "normal");
