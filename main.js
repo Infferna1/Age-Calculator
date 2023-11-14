@@ -57,20 +57,26 @@ function performCalculation() {
   const currentDate = new Date();
   const inputDate = new Date(year, month, day);
 
-  const difference = currentDate.getTime() - inputDate.getTime();
+  let years = currentDate.getFullYear() - inputDate.getFullYear();
+  let months = currentDate.getMonth() - inputDate.getMonth();
+  let days = currentDate.getDate() - inputDate.getDate();
 
-  const millisecondsInDay = 1000 * 60 * 60 * 24;
-  const days = Math.floor(difference / millisecondsInDay);
-  const years = currentDate.getFullYear() - inputDate.getFullYear();
-  const months = currentDate.getMonth() - inputDate.getMonth() + 12 * years;
+  if (months < 0 || (months === 0 && days < 0)) {
+    years--;
+    months += 12;
+  }
+  
+  if (days < 0) {
+    const prevMonthLastDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+    days += prevMonthLastDay;
+    months--;
+  }
 
-  console.log(`Пройшло ${days} днів`);
-  console.log(`Пройшло ${months} місяців`);
-  console.log(`Пройшло ${years} років`);
+  console.log(`Пройшло ${years} років, ${months} місяців, ${days} днів`);
 
-  animateNumber(document.querySelectorAll('.num')[2], 0, days, 1000);
-  animateNumber(document.querySelectorAll('.num')[1], 0, months, 1500); 
   animateNumber(document.querySelectorAll('.num')[0], 0, years, 2000);
+  animateNumber(document.querySelectorAll('.num')[1], 0, months, 1500); 
+  animateNumber(document.querySelectorAll('.num')[2], 0, days, 1000);
 }
 
 function animateNumber(element, start, end, duration) {
@@ -86,7 +92,7 @@ function animateNumber(element, start, end, duration) {
     const currentNumber = Math.floor(percentage * (end - start) + start);
 
     element.textContent = currentNumber.toLocaleString('en-US', {
-      minimumIntegerDigits: 2,
+      minimumIntegerDigits: 1,
       useGrouping: false
     });
 
